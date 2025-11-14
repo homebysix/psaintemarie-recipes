@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Description</key>
+  <string>Downloads the latest Windsurf (Codeium) for macOS and imports it into a Munki repo.</string>
+  <key>Identifier</key>
+  <string>com.github.psaintemarie.munki.Windsurf</string>
+  <key>Input</key>
+  <dict>
+    <key>NAME</key>
+    <string>Windsurf</string>
+    <key>MUNKI_REPO_SUBDIR</key>
+    <string>apps/%NAME%</string>
+    <key>pkginfo</key>
+    <dict>
+      <key>name</key>
+      <string>%NAME%</string>
+      <key>display_name</key>
+      <string>Windsurf</string>
+      <key>developer</key>
+      <string>Codeium, Inc.</string>
+      <key>category</key>
+      <string>Development</string>
+      <key>catalogs</key>
+      <array>
+        <string>testing</string>
+      </array>
+      <key>description</key>
+      <string>Windsurf is Codeium’s AI-native IDE with Cascade agent, autocomplete, and chat to keep developers in flow.</string>
+      <key>blocking_applications</key>
+      <array>
+        <string>Windsurf</string>
+      </array>
+      <key>unattended_install</key>
+      <true/>
+    </dict>
+  </dict>
+  <key>MinimumVersion</key>
+  <string>1.0.0</string>
+  <key>ParentRecipe</key>
+  <string>com.github.almenscorner.download.Windsurf</string>
+  <key>Process</key>
+  <array>
+    <dict>
+      <key>Processor</key>
+      <string>MunkiImporter</string>
+      <key>Arguments</key>
+      <dict>
+        <key>pkg_path</key>
+        <string>%pathname%</string>
+        <key>repo_subdirectory</key>
+        <string>%MUNKI_REPO_SUBDIR%</string>
+      </dict>
+    </dict>
+  </array>
+</dict>
+</plist>
